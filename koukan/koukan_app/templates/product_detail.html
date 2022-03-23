@@ -19,30 +19,33 @@
         &nbsp;&nbsp;&nbsp;
         <span style="font-size: 250%">Hello,  {{user.first_name}}! Welcome to fleamarket!</span>
         <button type="button" class="btn btn-info"><a href="/logout">Log Out</a></button>
-    
-</div>
-    <h2>Product Detail</h2>
-        <table>
-            <thead>
-                    <th>Product Name</th>
-                    <th>Description</th>
-                    <th>Posted Date</th>
-                    <th>Condition</th>
-       
-            </thead>
-            <tbody>
-                <!-- {% for product in products %} -->
-                    <tr>
-                        <td>{{ product.product_name }}</td>
-                        <td>{{ product.description}}</td>
-                        <td>{{ product.created_at}}</td>
-                        <td>{{ product.condition}}</td>
-                    </tr>
-                <!-- {% endfor %} -->
-            </tbody>
-        </table>
-
-
+    </div>
+    <div id="wrapper">
+        <div id="middle-wrapper">
+        <h1>Product Detail</h1>
+        </br>
+        </br>
+            <table>
+                <tbody>
+                    <th>  <h4>Product Name :</h4></th>
+                    <th>  <h4>{{ product.product_name }}</h4></th>
+                </tbody>
+                <tbody>
+                    <th>  <h4>Description :</h4></th>
+                    <th>  <h4>{{ product.description}}</h4></th>
+                </tbody>
+                <tbody>
+                    <th>  <h4>Posted Date :</h4></th>
+                    <th>  <h4>{{ product.created_at}}</h4></th>
+                <tbody>
+                    <th>  <h4>Condition :</h4></th>
+                    <th>  <h4>{{ product.condition}}</h4></th>
+                </tbody>
+            </table>
+        </br>
+        </br>
+            <button type="button" class="btn btn-danger"><a href="/products">Go back to Dashboard</a></button>
+        </div>
     </div>
 </body>
 </html>
