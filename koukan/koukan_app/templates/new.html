@@ -13,13 +13,14 @@
 </head>
 <body>
     <div id="header">
+       
         {% load static %}
-        <img src="{% static "imgs/exchange.png" %}" alt="logo"/>
+        <a href="/products"><img src="{% static "imgs/fleamarket.png" %}" alt="logo"/></a>
         &nbsp;&nbsp;&nbsp;
-        <span style="font-size: 250%">Hello,  {{user.first_name}}! Welcome to Koukan!</span>
-   
+        <span style="font-size: 250%">Hello,  {{user.first_name}}! Welcome to fleamarket!</span>
         <button type="button" class="btn btn-info"><a href="/logout">Log Out</a></button>
-    </div>
+    
+</div>
     
     <div id="container">
 
@@ -46,10 +47,10 @@
                             <p>Description: <input type="text" name="description" ></p>
                             <p>Condition: <select name="condition" class="form-select" aria-label="Default select example">
                                 <option selected>Choose the condition</option>
-                                <option value="1">Brand New</option>
-                                <option value="2">Like-New</option>
-                                <option value="3">Used</option>
-                                <option value="4">Poor</option>
+                                <option value="Brand New">Brand New</option>
+                                <option value="Like-New">Like-New</option>
+                                <option value="Used">Used</option>
+                                <option value="Poor">Poor</option>
                             </select></p>
                             <!-- <p>Picture Upload:<input type="text_area" name="product_img"> </p> -->
                         

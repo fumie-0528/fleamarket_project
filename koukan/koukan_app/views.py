@@ -43,8 +43,8 @@ def products(request):
     user = User.objects.get(id = request.session['user_id'])
     context = {
 		"user": user,
-        "products": products,
-        "user_products": Product.objects.filter(user=user)	
+        # "user_products": Product.objects.filter(user=user),
+        "products": Product.objects.all()
 	}
     return render(request,"dashboard.html",context)
 
@@ -74,14 +74,15 @@ def create(request):
         )
     return redirect("/products")
 
-# def detail(request, id):
-#     product = Product.objects.get(id=id)
-#     user = User.objects.get(id = request.session['user_id'])
-#     context = {
-#         "products": product,
-# 		"product_user":Product.objects.all().exclude(user=user)
-#     }
-#     return render(request,'product_detail.html', context)
+def detail(request, id):
+    product = Product.objects.get(id=id)
+    user = User.objects.get(id = request.session['user_id'])
+    context = {
+        "user" :user,
+        "product": product,
+		# "product_user":Product.objects.all().exclude(user=user)
+    }
+    return render(request,'product_detail.html', context)
 
 def edit(request, id):
     product = Product.objects.get(id=id)
@@ -92,13 +93,13 @@ def edit(request, id):
     }
     return render(request, "edit.html", context)
 
-# def update(request, id):
-#     to_update = Product.objects.get(id=id)
-#     to_update.product_name = request.POST["update_product_name"]
-#     to_update.description = request.POST["update_destination"]
-#     to_update.condition= request.POST["update_condition"]
-#     to_update.save()
-#     return redirect(f"/products/detail/{id}")
+def update(request, id):
+    to_update = Product.objects.get(id=id)
+    to_update.product_name = request.POST["update_product_name"]
+    to_update.description = request.POST["update_description"]
+    to_update.condition= request.POST["update_condition"]
+    to_update.save()
+    return redirect(f"/products/detail/{id}")
 
 def delete(request,id):
     product = Product.objects.get(id=id)

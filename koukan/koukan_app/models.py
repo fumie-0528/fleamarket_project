@@ -68,6 +68,7 @@ class Product(models.Model):
     description = models.CharField(max_length=255)
     condition = models.CharField(max_length=255)
     user = models.ForeignKey(User, related_name = "products",on_delete=models.CASCADE)
+    # joined = models.ManyToManyField(User, related_name = "joined_products")
     # product_img = models.ImageField(upload_to='images/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)            

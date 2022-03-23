@@ -15,9 +15,9 @@
     <div id="header">
        
             {% load static %}
-            <img src="{% static "imgs/exchange.png" %}" alt="logo"/>
+            <a href="/products"><img src="{% static "imgs/fleamarket.png" %}" alt="logo"/></a>
             &nbsp;&nbsp;&nbsp;
-            <span style="font-size: 250%">Hello,  {{user.first_name}}! Welcome to Koukan!</span>
+            <span style="font-size: 250%">Hello,  {{user.first_name}}! Welcome to fleamarket!</span>
             <button type="button" class="btn btn-info"><a href="/logout">Log Out</a></button>
         
     </div>
@@ -31,23 +31,21 @@
                 <th>Product</th>
                 <th>Description</th>
                 <th>Condition</th>
-                <th>Posted By</th>
                 <th>Action</th>
             </thead>
             <tbody>
-            {% for product in user_products %}
+            {% for product in products %}
                 <tr>
-                    <td><a href="product/detail/{{product.id}}">{{ product.id }}</a></td>
+                    <td><a href="products/detail/{{product.id}}">{{ product.id }}</a></td>
                     <td>{{product.product_name}}</td>
                     <td>{{product.description}}</td>
                     <td>{{product.condition}}</td>
-                    <td>{{user.first_name}}</td>
                     <td>
-                        <a href="trips/delete/{{trip.id}}"> Delete </a> |  
-                        <a href="trips/edit/{{trip.id}}">Edit</a>   
+                        <a href="products/delete/{{product.id}}"> Delete </a> |  
+                        <a href="products/edit/{{product.id}}">Edit</a>   
                     </td>
                 </tr> 
-            {% endfor %}
+            {% endfor %} 
     
             </tbody>  
         </table>  
